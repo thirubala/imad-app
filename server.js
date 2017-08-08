@@ -9,7 +9,7 @@ var articleOne = {
   title: 'Article One | Thiru',
   heading: 'Harry Potter',
   date: 'Aug 9,2017',
-  Content: '<p>This page will contain Harry Potter updates, my first British obsession.</p>'
+  content: '<p>This page will contain Harry Potter updates, my first British obsession.</p>'
 };
 
 function createTemplate(data){
