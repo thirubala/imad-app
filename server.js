@@ -5,26 +5,26 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-  title: 'Article One | Thiru',
-  heading: 'Harry Potter',
-  date: 'Aug 9,2017',
-  content: '<p>This page will contain Harry Potter updates, my first British obsession.</p>'
-};
-
-var articleTwo = {
-  title: 'Article Two | Thiru',
-  heading: 'Doctor Who',
-  date: 'Aug 19,2017',
-  content: '<p>This page will contain Doctor Who updates, my second British obsession.</p>'
-};
-
-var articleThree = {
-  title: 'Article Three | Thiru',
-  heading: 'Sherlock',
-  date: 'Aug 29,2017',
-  content: `<p>This page will contain Sherlock updates, my second British obsession.
-            Actually maybe not obsession in this case, more like appreciation.</p>`
+var articles = {
+    'article-one': {
+      title: 'Article One | Thiru',
+      heading: 'Harry Potter',
+      date: 'Aug 9,2017',
+      content: '<p>This page will contain Harry Potter updates, my first British obsession.</p>'
+},
+    'article-two': {
+      title: 'Article Two | Thiru',
+      heading: 'Doctor Who',
+      date: 'Aug 19,2017',
+      content: '<p>This page will contain Doctor Who updates, my second British obsession.</p>'
+},
+    'article-three': {
+      title: 'Article Three | Thiru',
+      heading: 'Sherlock',
+      date: 'Aug 29,2017',
+      content: `<p>This page will contain Sherlock updates, my second British obsession.
+                Actually maybe not obsession in this case, more like appreciation.</p>`
+}
 };
 
 function createTemplate(data){
@@ -64,8 +64,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res){
-    res.send(createTemplate(articleOne));
+app.get('/:articleName',function(req,res){
+    //articleName = articleOne/Two/Three through a built-in functionality of the APIs included
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/article-two',function(req,res){
