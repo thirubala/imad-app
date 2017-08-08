@@ -12,6 +12,21 @@ var articleOne = {
   content: '<p>This page will contain Harry Potter updates, my first British obsession.</p>'
 };
 
+var articleTwo = {
+  title: 'Article Two | Thiru',
+  heading: 'Doctor Who',
+  date: 'Aug 19,2017',
+  content: '<p>This page will contain Doctor Who updates, my second British obsession.</p>'
+};
+
+var articleThree = {
+  title: 'Article Three | Thiru',
+  heading: 'Sherlock',
+  date: 'Aug 29,2017',
+  content: `<p>This page will contain Sherlock updates, my second British obsession.
+            Actually maybe not obsession in this case, more like appreciation.</p>`
+};
+
 function createTemplate(data){
     var title = data.title;
     var heading = data.heading;
@@ -54,11 +69,11 @@ app.get('/article-one',function(req,res){
 });
 
 app.get('/article-two',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+    res.send(createTemplate(articleTwo));
 });
 
 app.get('/article-three',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+    res.send(createTemplate(articleThree));
 });
 
 
