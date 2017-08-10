@@ -8,7 +8,7 @@ text.onclick = function(){
 
 //Move the image across the screen
 var img=document.getElementById('gif');
-var marginleft = 0;
+var marginLeft = 0;
 //a user defined function to move the object by altering the left margin
 function moveRight(){
  marginLeft = marginLeft + 5;
