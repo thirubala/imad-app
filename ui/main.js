@@ -7,7 +7,7 @@ button.onclick = function(){
   
   //displaying the comments
   var span = document.getElementById('cmnt');
-  span.innerHTML= comment;
+  span.innerHTML= comment.toString();
 };
 
 
