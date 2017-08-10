@@ -4,13 +4,13 @@ var comment = 0;
 button.onclick = function(){
   
   //creating an API reqeust object
-  var request = new XMLHTTPRequest();
+  var request = new XMLHttpRequest();
   
   //the change of state of the page load
   request.onreadystatechange = function(){
       
       //if the reqeust is comepleted
-      if(request.readyState === XMLHTTPRequest.DONE){
+      if(request.readyState === XMLHttpRequest.DONE){
           //if request is successful
           if(request.status === 200){
               
