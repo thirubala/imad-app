@@ -55,7 +55,14 @@ function createTemplate(data){
                 </div>
             </div>
             <br>
-        </body>  
+            <hr>
+            <div id="footer" class='footer'>
+                <h7>Comments</h7>
+                <br>
+                <br>
+	            <input type="text" name="cmnt"/>
+                </div>
+        </body>
     </html>`; 
     return htmlTemplate;
 }
