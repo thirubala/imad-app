@@ -13,7 +13,7 @@ button.onclick = function(){
           //if request is successful
           if(request.status === 200){
               
-              var comment = request.responseText;
+              var counter = request.responseText;
               var span = document.getElementById('cmnt');
               span.innerHTML= comment.toString();
           }
@@ -27,7 +27,13 @@ button.onclick = function(){
   
 };
 
-
+var userInput = document.getElementById('user_text');
+var comment = userInput.value; 
+var submit = document.getElementById('submit');
+submit.onclick = function(){
+    
+    
+}
 
 /*console.log('Loaded!');
 
