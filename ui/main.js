@@ -14,7 +14,7 @@ button.onclick = function(){
           if(request.status === 200){
               
               var counter = request.responseText;
-              var span = document.getElementById('cmnt');
+              var span = document.getElementById('counter');
               span.innerHTML= comment.toString();
           }
       }
