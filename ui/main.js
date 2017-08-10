@@ -1,4 +1,18 @@
-console.log('Loaded!');
+var button = document.getElementById('submit');
+var comment = '';
+
+button.onclick = function(){
+  
+  comment = comment + 'a';
+  
+  //displaying the comments
+  var span = document.getElementById('cmnt');
+  span.innerHTML= comment;
+};
+
+
+
+/*console.log('Loaded!');
 
 //Change the page text
 var text=document.getElementById('main-text');
@@ -18,4 +32,4 @@ function moveRight(){
 
 img.onclick = function(){
     setInterval(moveRight,10);
-};
+};*/
