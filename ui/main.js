@@ -35,15 +35,31 @@ var userInput = document.getElementById('user_text');
 var comment = userInput.value; 
 var submit = document.getElementById('submit');
 submit.onclick = function(){
-    
-    var names = ['cmnt1','cmnt2','cmnt3'];
-    var list = '';
-    for(var i =0;i < names.length; i++){
-        list += '<li>'+names[i]+'</li>';
+    //creating an API reqeust object
+    var request = new XMLHttpRequest();
+  
+    //the change of state of the page load
+    request.onreadystatechange = function(){
+      
+        //if the reqeust is comepleted
+        if(request.readyState === XMLHttpRequest.DONE){
+          //if request is successful
+          if(request.status === 200){    
+                var names = ['cmnt1','cmnt2','cmnt3'];
+                var list = '';
+                for(var i =0;i < names.length; i++){
+                list += '<li>'+names[i]+'</li>';
+            }
+            var ul = document.getElementById('commentlist');
+            ul.innerHTML = list;
+        }
     }
-    var ul = document.getElementById('commentlist');
-    ul.innerHTML = list;
+    };
+
+    request.open('GET','http://thirubala3171.imad.hasura-app.io/submit-name?name='+name,true);
+    request.send(null);
 };
+
 
 /*console.log('Loaded!');
 //Change the page text
