@@ -3,11 +3,30 @@ var comment = 0;
 
 button.onclick = function(){
   
-  comment = comment + 1;
+  //creating an API reqeust object
+  var request = new XMLHTTPRequest();
   
-  //displaying the comments
-  var span = document.getElementById('cmnt');
-  span.innerHTML= comment.toString();
+  //the change of state of the page load
+  request.onreadystatechange = function(){
+      
+      //if the reqeust is comepleted
+      if(request.readyState === XMLHTTPRequest.DONE){
+          //if request is successful
+          if(request.status === 200){
+              
+              comment = comment + 1;
+              //displaying the comments
+              var span = document.getElementById('cmnt');
+              span.innerHTML= comment.toString();
+          }
+      }
+  };
+  
+  //making the request
+  
+  request.open('GET','http://thirubala3171.imad.hasura-app.io/counter',true);
+  request.send(null);
+  
 };
 
 
