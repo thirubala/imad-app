@@ -1,5 +1,4 @@
 var button = document.getElementById('submit');
-var comment = 0;
 
 button.onclick = function(){
   
@@ -14,8 +13,7 @@ button.onclick = function(){
           //if request is successful
           if(request.status === 200){
               
-              comment = comment + 1;
-              //displaying the comments
+              var comment = request.responseText;
               var span = document.getElementById('cmnt');
               span.innerHTML= comment.toString();
           }
