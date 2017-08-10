@@ -1,9 +1,9 @@
 var button = document.getElementById('submit');
-var comment = '';
+var comment = 0;
 
 button.onclick = function(){
   
-  comment = comment + 'a';
+  comment = comment + 1;
   
   //displaying the comments
   var span = document.getElementById('cmnt');
