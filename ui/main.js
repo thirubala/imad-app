@@ -31,8 +31,7 @@ button.onclick = function(){
   
 };
 
-var userInput = document.getElementById('user_text');
-var comment = userInput.value; 
+
 var submit = document.getElementById('submit');
 submit.onclick = function(){
     //creating an API reqeust object
@@ -56,7 +55,9 @@ submit.onclick = function(){
         }
     }
     };
-
+    
+    var userInput = document.getElementById('user_text');
+    var comment = userInput.value; 
     request.open('GET','http://thirubala3171.imad.hasura-app.io/submit-name?name='+name,true);
     request.send(null);
 };
