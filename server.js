@@ -70,6 +70,16 @@ app.get('/counter',function(req,res){
     res.send(counter.toString());
 });
 
+var names = [];
+app.get('/submit-name/:name',function(req,res){
+   
+   var name = req.params.name;
+   
+   names.push(name);
+   
+   res.send(JSON.stringify(names));
+});
+
 app.get('/:articleName',function(req,res){
     //articleName = articleOne/Two/Three through a built-in functionality of the API express included
     var articleName = req.params.articleName;
