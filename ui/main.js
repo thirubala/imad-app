@@ -13,9 +13,13 @@ button.onclick = function(){
           //if request is successful
           if(request.status === 200){
               
-              var counter = request.responseText;
-              var span = document.getElementById('counter');
-              span.innerHTML= comment.toString();
+              var names = ['cmnt1','cmnt2','cmnt3'];
+              var list = '';
+              for(var i =0;i < names.length; i++){
+              list += '<li>'+names[i]+'</li>';
+    }
+    var ul = document.getElementById('commentlist');
+    ul.innerHTML = list();
           }
       }
   };
