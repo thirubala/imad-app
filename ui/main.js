@@ -45,7 +45,7 @@ submit.onclick = function(){
         if(request.readyState === XMLHttpRequest.DONE){
           //if request is successful
           if(request.status === 200){    
-                var names = ['cmnt1','cmnt2','cmnt3'];
+                var names = request.responseText;
                 var list = '';
                 for(var i =0;i < names.length; i++){
                 list += '<li>'+names[i]+'</li>';
