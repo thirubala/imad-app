@@ -50,6 +50,7 @@ submit.onclick = function(){
                 var list = '';
                 for(var i =0;i < names.length; i++){
                 list += '<li>'+names[i]+'</li>';
+                console.log(names[i]);
             }
             var ul = document.getElementById('commentlist');
             ul.innerHTML = list;
