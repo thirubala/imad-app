@@ -1,4 +1,4 @@
-var button = document.getElementById('submit');
+/*var button = document.getElementById('submit');
 
 button.onclick = function(){
   
@@ -31,7 +31,7 @@ button.onclick = function(){
   
 };
 
-
+*/
 var submit = document.getElementById('submit');
 submit.onclick = function(){
     //creating an API reqeust object
