@@ -60,7 +60,7 @@ submit.onclick = function(){
     
     var userInput = document.getElementById('user_text');
     var comment = userInput.value; 
-    request.open('GET','http://thirubala3171.imad.hasura-app.io/submit-name?name='+name,true);
+    request.open('GET','http://thirubala3171.imad.hasura-app.io/submit-name?name='+comment,true);
     request.send();
 };
 
