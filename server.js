@@ -106,11 +106,12 @@ app.get('/articles/:articleName',function(req,res){
               res.status(404).send('Oops, looks like this exist doesnt exist! Try a different article.');
           }else{
               var articleData = result.rows[0];
+              res.send(createTemplate(articles[articleData]));
           }
       }
    });
 
-    res.send(createTemplate(articles[articleData]));
+   
 });
 
 app.get('/article-two',function(req,res){
