@@ -96,10 +96,10 @@ var pool = new Pool(config);
  //articleName = articleOne/Two/Three through a built-in functionality of the API express included
 app.get('articles/:articleName',function(req,res){
    
-   pool.query("Select * from articles where title like $1%",[ req.params.articleName],function(req,res){
+   pool.query("Select * from articles where title = $1",[ req.params.articleName],function(req,res){
       
       if(err){
-          rest.status(500).send(err.toString());
+          res.status(500).send(err.toString());
       } else{
           if(res.rows.length === 0){
               res.status(404).send('Oops, looks like this exist doesnt exist! Try a different article.');
