@@ -102,7 +102,7 @@ app.get('/articles/:articleName',function(req,res){
           res.status(500).send(err.toString());
       } else{
           if(result.rows.length === 0){
-              res.status(404).send('Oops, looks like this exist doesnt exist! Try a different article.');
+              res.status(404).send("Oops, looks like this article doesnt exist! Try a different article.");
           }else{
               var articleData = result.rows[0];
               res.send(createTemplate(articles[articleData]));
