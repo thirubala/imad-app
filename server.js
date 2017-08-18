@@ -1,6 +1,16 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var Pool = require('pg').Pool;
+
+//configuration details for the database
+var config = {
+  user : 'thirubala3171',
+  database: 'thirubala3171',
+  host: 'http://db.imad.hasura-app.io',
+  port: '5432',
+  password : process.env.DB-PASSWORD
+};
 
 var app = express();
 app.use(morgan('combined'));
@@ -48,7 +58,7 @@ function createTemplate(data){
                     <h2>${heading}</h2>
                 </div>
                 <div>
-                   ${date}
+                   ${date.toString()}
                 </div>
                 <div>
                     ${content}
@@ -80,10 +90,26 @@ app.get('/submit-name',function(req,res){
    res.send(JSON.stringify(names));
 });
 
-app.get('/:articleName',function(req,res){
-    //articleName = articleOne/Two/Three through a built-in functionality of the API express included
-    var articleName = req.params.articleName;
-    res.send(createTemplate(articles[articleName]));
+//creating connection request for db
+var pool = new Pool(config);
+
+ //articleName = articleOne/Two/Three through a built-in functionality of the API express included
+app.get('articles/:articleName',function(req,res){
+   
+   pool.query("Select * from articles where title = $1",[ req.params.articleName],function(req,res){
+      
+      if(err){
+          rest.status(500).send(err.toString());
+      } else{
+          if(res.rows.length === 0){
+              res.status(404).send('Oops, looks like this exist doesnt exist! Try a different article.');
+          }else{
+              var articleData = result.rows[0];
+          }
+      }
+   });
+
+    res.send(createTemplate(articles[articleData]));
 });
 
 app.get('/article-two',function(req,res){
